@@ -27,8 +27,6 @@ try {
 
 let payouts = [];
 
-let payouts = [];
-
 app.get('/', (req, res) => {
   res.json({ 
     status: "MyanMyanPay Backend Running!", 
