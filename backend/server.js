@@ -26,3 +26,33 @@ try {
 }
 
 let payouts = [];
+
+let payouts = [];
+
+app.get('/', (req, res) => {
+  res.json({ 
+    status: "MyanMyanPay Backend Running!", 
+    mmpay: mmpay ? "connected" : "testing mode - no keys yet",
+    time: new Date().toISOString()
+  });
+});
+
+app.get('/health', (req, res) => {
+  res.json({ ok: true });
+});
+
+// Test payouts endpoint
+app.get('/api/payouts', (req, res) => {
+  res.json(payouts);
+});
+
+app.post('/api/payouts', (req, res) => {
+  const payout = { id: Date.now(), ...req.body, createdAt: new Date() };
+  payouts.push(payout);
+  res.json(payout);
+});
+
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
