@@ -1,0 +1,16 @@
+services:
+    - type: web
+    name: myanmyanpay-backend
+    env: node
+    plan: free
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+            - key: APP_ID
+        sync: false
+            - key: PUBLISHABLE_KEY
+        sync: false
+            - key: SECRET_KEY
+        sync: false
+            - key: API_BASE_URL
+        value: https://ezapi.myanmyanpay.com
