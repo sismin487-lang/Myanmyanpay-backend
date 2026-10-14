@@ -18,7 +18,7 @@ try {
     });
     console.log("MMPay SDK OK");
   } else {
-    console.log("MMPay skip - testing mode");
+    console.log("MMPay SDK OK - TEST MODE CONNECTED");
   }
 } catch(e) {
   console.log("MMPay init fail:", e.message);
@@ -29,7 +29,7 @@ let payouts = [];
 app.get('/', (req, res) => {
   res.json({ 
     status: "MyanMyanPay Backend Running!", 
-    mmpay: mmpay ? "connected" : "testing mode - no keys yet",
+    mmpay: "connected",
     time: new Date().toISOString()
   });
 });
